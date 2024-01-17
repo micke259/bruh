@@ -10,12 +10,11 @@ export function buildLoaders(options : buildOptions):ModuleOptions['rules'] {
         type: 'asset/resource',
       }
 
-	const scssLoader = {
-          test: /\.s[ac]ss$/i,
+	const cssLoader = {
+          test: /\.css$/i,
           use: [
             MiniCssExtractPlugin.loader,
             "css-loader",
-            "sass-loader",
           ],
         }
 
@@ -31,9 +30,9 @@ export function buildLoaders(options : buildOptions):ModuleOptions['rules'] {
       }
 
 	return [
+    cssLoader,
     assetLoader,
 		htmlLoader,
-		scssLoader,
 		tsLoader
 	]
 }
